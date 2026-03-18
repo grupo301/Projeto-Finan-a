@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cidade Sem Buracos</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background: #444;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background: white;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #333;
+}
+
+button {
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🚧 Cidade Sem Buracos</h1>
+    <p>Juntos por ruas mais seguras!</p>
+</header>
+
+<nav>
+    <a href="#mapa">Mapa</a>
+    <a href="#como">Como Resolver</a>
+    <a href="#reclamacao">Gerar Reclamação</a>
+    <a href="#dados">Conscientização</a>
+    <a href="#peticao">Abaixo-Assinado</a>
+</nav>
+
+<section id="mapa">
+    <h2>📍 Mapa dos Buracos</h2>
+    <p>Aqui você poderá futuramente integrar um mapa (Google Maps).</p>
+    <p>Funcionalidades:</p>
+    <ul>
+        <li>Marcar local do buraco</li>
+        <li>Enviar fotos</li>
+        <li>Status: Reportado | Em análise | Resolvido</li>
+        <li>Sistema de votação</li>
+    </ul>
+</section>
+
+<section id="como">
+    <h2>📢 Como Resolver Ruas Esburacadas</h2>
+    <p>Passos para solicitar reparo:</p>
+    <ol>
+        <li>Verifique se a responsabilidade é da Prefeitura.</li>
+        <li>Registre reclamação no site oficial da Prefeitura.</li>
+        <li>Guarde número de protocolo.</li>
+        <li>Acompanhe o pedido.</li>
+    </ol>
+    <p>Você também pode ligar para a ouvidoria do seu município.</p>
+</section>
+
+<section id="reclamacao">
+    <h2>🧾 Gerador de Reclamação Automática</h2>
+
+    <label>Seu Nome:</label>
+    <input type="text" id="nome">
+
+    <label>Endereço do Buraco:</label>
+    <input type="text" id="endereco">
+
+    <label>Descrição do Problema:</label>
+    <textarea id="descricao"></textarea>
+
+    <button onclick="gerarTexto()">Gerar Reclamação</button>
+
+    <h3>Texto Gerado:</h3>
+    <textarea id="resultado" rows="8"></textarea>
+</section>
+
+<section id="dados">
+    <h2>📊 Conscientização</h2>
+    <p>Buracos nas ruas causam:</p>
+    <ul>
+        <li>Acidentes</li>
+        <li>Prejuízos a veículos</li>
+        <li>Atraso de ambulâncias</li>
+        <li>Risco a pedestres e ciclistas</li>
+    </ul>
+    <p>Em alguns casos, o cidadão pode solicitar indenização por danos ao veículo.</p>
+</section>
+
+<section id="peticao">
+    <h2>🤝 Abaixo-Assinado Comunitário</h2>
+    <p>Assine para cobrar melhorias na sua rua:</p>
+
+    <input type="text" id="assinatura" placeholder="Digite seu nome">
+    <button onclick="assinar()">Assinar</button>
+
+    <h3>Assinaturas:</h3>
+    <ul id="lista"></ul>
+</section>
+
+<footer>
+    <p>Projeto Social - Cidade Sem Buracos © 2026</p>
+</footer>
+
+<script>
+function gerarTexto() {
+    let nome = document.getElementById("nome").value;
+    let endereco = document.getElementById("endereco").value;
+    let descricao = document.getElementById("descricao").value;
+
+    let texto = `À Prefeitura Municipal,
+
+Eu, ${nome}, venho por meio deste solicitar reparo urgente na via localizada em ${endereco}.
+
+Descrição do problema:
+${descricao}
+
+Solicito providências o mais rápido possível, pois o problema oferece risco à população.
+
+Atenciosamente,
+${nome}`;
+
+    document.getElementById("resultado").value = texto;
+}
+
+function assinar() {
+    let nome = document.getElementById("assinatura").value;
+    if(nome !== "") {
+        let li = document.createElement("li");
+        li.textContent = nome;
+        document.getElementById("lista").appendChild(li);
+        document.getElementById("assinatura").value = "";
+    }
+}
+</script>
+
+</body>
+</html></body>
+</html>
